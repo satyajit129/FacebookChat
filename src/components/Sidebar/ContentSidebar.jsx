@@ -16,7 +16,7 @@ const ContentSidebar = ({ handleClick }) => {
 
         const fetchMessages = () => {
             setLoading(true);
-            setError(null); // Reset error state before fetching
+            setError(null); 
 
             fetch(conversationsAPIUrl)
                 .then((response) => {
@@ -41,15 +41,52 @@ const ContentSidebar = ({ handleClick }) => {
                 .finally(() => setLoading(false));
         };
 
+        const totalPosts = "https://graph.facebook.com/v21.0/431751180032336/posts?access_token=EAATriRmScZB4BO2FMmlUM7yLfZCVfbBecmzFryaXe6IkkFb5QgCjchfUWXtudVCEmmEgkaBWoRJ6ZB98tWnOVfVUWmpxtYLCquLYYEFWasK1o3vpyBrqtx9QBOGCZCztM1ZBs4pZBO1WzafwB8VrGtjTAmv9hIjRF6pAB39CZBfjavrn6siZCjFl6JZBzGDfo22fMxk1fSEtMscvW8zfS";
+
+        const fetchPosts = () => {
+            setLoading(true);
+            setError(null);
+            fetch(totalPosts)
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error("Failed to fetch data.");
+                    }
+                    return response.json();
+                })
+                .then((data) => {
+                    console.log(data);
+                    const formattedPostMessages = data.data.map((post_comment) => ({
+                        id: post_comment.id,
+                        name: post_comment.id || "Unknown User",
+                        image:
+                            post_comment.participants?.data[0]?.profile_pic ||
+                            "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cGVvcGxlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
+                        time: new Date(post_comment.created_time).toLocaleTimeString(),
+                        post_commentId: post_comment.id,
+                    }));
+                    setMessages(formattedPostMessages);
+                })
+                .catch((error) => {
+                    console.error(error);
+                    setError(error.message);
+                })
+                .finally(() => {
+                    setLoading(false);
+                });
+        };
+        
+
         if (pathname === "/chat") {
-            fetchMessages(); // Initial fetch
-            intervalId = setInterval(fetchMessages, 30000); // Fetch every 30 seconds
-        } else {
+            fetchMessages();
+            intervalId = setInterval(fetchMessages, 30000);
+        }else if(pathname === "/post_comment") {
+            fetchPosts();
+        }else {
             setMessages([]);
         }
 
         return () => {
-            clearInterval(intervalId); // Clear interval when component unmounts or pathname changes
+            clearInterval(intervalId); 
         };
     }, [pathname]);
 
@@ -58,7 +95,7 @@ const ContentSidebar = ({ handleClick }) => {
             case "/chat":
                 return "Chats";
             case "/post_comment":
-                return "Comments";
+                return "Post Comments";
             case "/dashboard":
                 return "Dashboard";
             default:
@@ -110,7 +147,7 @@ const ContentSidebar = ({ handleClick }) => {
                                             {message.name}
                                         </span>
                                         <span className="content-message-time">
-                                            {message.time}
+                                            Time: {message.time}
                                         </span>
                                     </span>
                                 </a>

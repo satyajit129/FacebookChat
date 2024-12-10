@@ -95,7 +95,7 @@ const Comment = () => {
                     />
                     <div className={`conversation conversation-default ${!isActive ? "active" : ""}`}>
                         <i className="ri-chat-3-line" />
-                        <p>Select chat and view conversation!</p>
+                        <p>Select to view conversation!</p>
                     </div>
                     <div
                         className={`conversation ${isActive ? "active" : ""}`}
