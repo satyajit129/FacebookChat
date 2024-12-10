@@ -1,0 +1,63 @@
+.sidebar {
+  width: 60px;
+  height: 100vh;
+  background-color: #662d91;
+  color: white;
+  transition: width 0.4s ease-in-out, padding 0.4s ease-in;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  overflow: hidden; /* Ensures smooth transition without content overflow */
+}
+
+.sidebar.expanded {
+  width: 200px;
+}
+
+.menuBar {
+  cursor: pointer;
+  padding: 20px;
+  transition: padding 0.3s ease;
+}
+
+.nav {
+  margin-top: 20px;
+}
+
+.nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav li {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.nav li:hover {
+  background-color: #34495e;
+}
+
+.icon {
+  margin-right: 10px;
+  transition: margin 0.3s ease; /* Smoothly adjusts icon margin when expanded */
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+}
+
+.nav span {
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar.expanded .nav span {
+  opacity: 1; /* Text fades in smoothly when expanded */
+}

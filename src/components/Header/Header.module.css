@@ -1,0 +1,67 @@
+/* src/components/Header/Header.module.css */
+.header {
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #662d91;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .iconContainer {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+  
+  .iconWrapper {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .icon {
+    font-size: 28px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  
+  .icon:hover {
+    color: #1abc9c;
+  }
+  
+  .badge {
+    position: absolute;
+    top: -13px;
+    width: 25px;
+    height: 25px;
+    right: -13px;
+    background-color: #e74c3c;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 50%;
+    padding: 3px 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .userContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .userIcon {
+    font-size: 36px;
+    color: white;
+  }
+  
+  .userName {
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+  }
+  

@@ -1,0 +1,94 @@
+.commentBody {
+    padding: 15px;
+}
+
+.postDetails p {
+    font-size: 14px;
+}
+
+.commentList {
+    display: flex;
+    align-items: flex-start;
+    border-radius: 8px;
+}
+
+.userAvatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.commentDetails {
+    display: flex;
+    flex-direction: column;
+}
+
+.commentUser {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.commentText {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+.commentTime {
+    font-size: 0.875rem;
+    color: #888;
+    margin-top: 5px;
+}
+
+.commenthelper {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.commenthelper {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.icon {
+    font-size: 2rem;
+    cursor: pointer;
+    color: #333;
+    transition: color 0.3s ease;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    padding: 5px;
+    transition: border-color 0.3s ease, color 0.3s ease;
+    box-sizing: border-box;
+}
+
+.icon:hover {
+    color: #007bff;
+    border-color: #007bff;
+}
+.addIcon {
+    font-size: 22px;
+    cursor: pointer;
+    color: #333;
+    transition: color 0.3s ease;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    padding: 5px;
+    transition: border-color 0.3s ease, color 0.3s ease;
+    box-sizing: border-box;
+}
+
+.addIcon:hover {
+    color: #007bff;
+    border-color: #007bff;
+}
+.UserInfo{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
